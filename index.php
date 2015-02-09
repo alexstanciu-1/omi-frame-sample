@@ -25,6 +25,7 @@
 
 	// only in development mode, remove or comment this line in production
 	ini_set('memory_limit', '128M');
+	// Put your IP instead of "default" if you are not on the same network with the web server
 	\QAutoload::EnableDevelopmentMode("default", false, false);
 		
 	// connect to the SQL server
