@@ -1,0 +1,20 @@
+
+Options -Indexes
+Options -Multiviews
+
+Options +FollowSymlinks
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# redirect all requests that were not found to index.php and set the original request in GET['__or__']
+
+# avoid folders that should not be requested, and folders where you place your files
+# this is better than avoiding by extension
+RewriteCond %{REQUEST_URI} !code.*$ [NC]
+RewriteCond %{REQUEST_URI} !files.*$ [NC]
+
+RewriteRule ^(.*)$ index.php?__or__=$1 [L,QSA]
+
+# in CGI mode we need to get the AUTHORIZATION headers for PHP
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]

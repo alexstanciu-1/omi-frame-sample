@@ -1,0 +1,55 @@
+
+.dropDownCtrl {
+	position: relative;
+	
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.dropDownCtrl .hidden-container {
+	display: none;
+	position: absolute;
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 5px;
+	z-index: 40000;
+	top: 100%;
+}
+
+.dropDownCtrl * {
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.dropDownCtrl .selected {
+	position: relative;
+	padding-right: 1em;
+	cursor: pointer;
+}
+
+.dropDownCtrl .selected .icon {
+	position: absolute;
+	right: 0;
+	cursor: pointer;
+	top: 0;
+}
+
+.dropDownCtrl .hidden-container .item {
+	cursor: pointer;
+	padding: 2px;
+}
+
+.dropDownCtrl .hidden-container .item:hover {
+	background-color: #33c3f0;
+	color: white;
+}
+

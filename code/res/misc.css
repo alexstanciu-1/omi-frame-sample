@@ -1,0 +1,74 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 3, 2015, 12:34:03 PM
+    Author     : Alex
+*/
+
+
+// modal, thanks to: http://blog.avtex.com/2012/01/26/cross-browser-css-only-modal-box/
+
+.qBoxWrap { /* The div that shows/hides. */
+    display:none; /* starts out hidden */
+    z-index:40001; /* High z-index to ensure it appears above all content */
+}
+
+.qBoxOverlay { /* Shades out background when selector is active */
+    position:fixed;
+    width:100%;
+    height:100%;
+    background-color:black;
+    opacity:.3; /* Sets opacity so it's partly transparent */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=3)"; /* IE transparency */
+    filter:alpha(opacity=3); /* More IE transparency */
+    z-index:40001;
+	left: 0;
+	top: 0;
+}
+
+.vertical-offset { /* Fixed position to provide the vertical offset */
+    position: fixed;
+    top: 5%;
+	height: 90%;
+    z-index: 40002; /* ensures box appears above overlay */
+    width: 940px;/* Whatever width you want the box to be */
+    margin: 0 auto 0 -25%;
+	left: 50%;
+}
+
+.qBox { /* The actual box, centered in the fixed-position div */
+	max-height: 90%;
+    /* Everything below is just visual styling */
+    background-color:white;
+    padding:20px;
+    border:1px solid black;
+	overflow-y: auto;
+}
+
+.vertical-offset .close {
+	 position:absolute;
+	 top: 0px; /* Half the icon's height */
+	 right: -30px; /* half the icon's width */
+	 z-index:50;
+	 color: white;
+	 background-color: black;
+	 font-weight: bold;
+	 display: block;
+	 border-radius: 12px;
+	 width: 24px;
+	 height: 24px;
+	 text-align: center;
+}
+
+a, label, h1, h2, h3, h4, h5, h6, button {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
