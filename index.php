@@ -11,7 +11,7 @@
 	// define('Q_FRAME_GET_ID_TYPE', "http://www.softdev.ro/~omibit/get_id_type.php");
 	
 	// include the frame
-	require_once("../../../../frame/src/init.php");
+	require_once("../omi-frame/src/init.php");
 	
 	// touch("code/view/order/OrderCtrl.edit.tpl");
 	
@@ -26,7 +26,7 @@
 	\QAutoload::EnableDevelopmentMode("default", false, false);
 		
 	// connect to the SQL server
-	$mysql = new \QMySqlStorage("sql", "localhost", "root", "sql4noo64", "test_omi_ecomm", 3306);
+	$mysql = new \QMySqlStorage("sql", "localhost", "root", "", "test_omi_ecomm", 3306);
 	$mysql->connect();
 	
 	// we set the $mysql object as the main storage for our APP

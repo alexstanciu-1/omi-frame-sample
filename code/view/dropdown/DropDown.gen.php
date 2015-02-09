@@ -18,7 +18,7 @@ if (\QWebRequest::IsAjaxCallback())
 			if (!$this->changed)
 				return;
 		}
-		if (\QAutoload::$DebugPanel) $this->renderDebugInfo("/var/www/~omibit/repos/alex/frame/tests/framesite/_first-app/code/view/dropdown/DropDown.item.tpl", "Generating (1) JS Functions to: /var/www/~omibit/repos/alex/frame/tests/framesite/_first-app/code/view/dropdown/DropDown.js\n");
+		if (\QAutoload::$DebugPanel) $this->renderDebugInfo("/var/www/~users/alex/omi-frame-sample/code/view/dropdown/DropDown.item.tpl", "Generating (1) JS Functions to: /var/www/~users/alex/omi-frame-sample/code/view/dropdown/DropDown.js\n");
 		?><!-- This will render one item in the drop down list
 	The "qArgs" attribute specifies the attributes that should be setup in PHP for this template's render method 
 	The "itemValue" attribute is copied to the "qbValue" attribute when an element in the list is clicked/selected
@@ -47,7 +47,7 @@ if (\QWebRequest::IsAjaxCallback())
 			if (!$this->changed)
 				return;
 		}
-		if (\QAutoload::$DebugPanel) $this->renderDebugInfo("/var/www/~omibit/repos/alex/frame/tests/framesite/_first-app/code/view/dropdown/DropDown.options.tpl", "Generating (1) JS Functions to: /var/www/~omibit/repos/alex/frame/tests/framesite/_first-app/code/view/dropdown/DropDown.js\n");
+		if (\QAutoload::$DebugPanel) $this->renderDebugInfo("/var/www/~users/alex/omi-frame-sample/code/view/dropdown/DropDown.options.tpl", "Generating (1) JS Functions to: /var/www/~users/alex/omi-frame-sample/code/view/dropdown/DropDown.js\n");
 		?><!-- renders the drop down options with or without a filter 
 	you also have the option to specify the data
 -->
@@ -83,7 +83,7 @@ if (\QWebRequest::IsAjaxCallback())
 			if (!$this->changed)
 				return;
 		}
-		if (\QAutoload::$DebugPanel) $this->renderDebugInfo("/var/www/~omibit/repos/alex/frame/tests/framesite/_first-app/code/view/dropdown/DropDown.tpl", "Generating (1) JS Functions to: /var/www/~omibit/repos/alex/frame/tests/framesite/_first-app/code/view/dropdown/DropDown.js\n");
+		if (\QAutoload::$DebugPanel) $this->renderDebugInfo("/var/www/~users/alex/omi-frame-sample/code/view/dropdown/DropDown.tpl", "Generating (1) JS Functions to: /var/www/~users/alex/omi-frame-sample/code/view/dropdown/DropDown.js\n");
 		?><!-- The main render for the Drop Down -->
 <div qArgs="$value = null, \QIModel $selectedItem = null, $qb = null" class="dropDownCtrl QWebControl" jsFunc="render(\$value, $selectedItem, \$qb)" qCtrl="<?=$this->name."(".get_class($this).")"?>">
 	<?php

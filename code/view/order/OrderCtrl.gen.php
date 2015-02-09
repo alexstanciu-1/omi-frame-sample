@@ -28,7 +28,7 @@ if (\QWebRequest::IsAjaxCallback())
 			if (!$this->changed)
 				return;
 		}
-		if (\QAutoload::$DebugPanel) $this->renderDebugInfo("/var/www/~omibit/repos/alex/frame/tests/framesite/_first-app/code/view/order/OrderCtrl.details.tpl", "Generating (1) JS Functions to: /var/www/~omibit/repos/alex/frame/tests/framesite/_first-app/code/view/order/OrderCtrl.js\n");
+		if (\QAutoload::$DebugPanel) $this->renderDebugInfo("/var/www/~users/alex/omi-frame-sample/code/view/order/OrderCtrl.details.tpl", "Generating (1) JS Functions to: /var/www/~users/alex/omi-frame-sample/code/view/order/OrderCtrl.js\n");
 		?><!-- This one is just pure PHP & XML
 	 Remember to close all tags (and short close when needed)
      -->
@@ -106,7 +106,7 @@ if (\QWebRequest::IsAjaxCallback())
 			if (!$this->changed)
 				return;
 		}
-		if (\QAutoload::$DebugPanel) $this->renderDebugInfo("/var/www/~omibit/repos/alex/frame/tests/framesite/_first-app/code/view/order/OrderCtrl.edit.tpl", "Generating (3) JS Functions to: /var/www/~omibit/repos/alex/frame/tests/framesite/_first-app/code/view/order/OrderCtrl.js\n");
+		if (\QAutoload::$DebugPanel) $this->renderDebugInfo("/var/www/~users/alex/omi-frame-sample/code/view/order/OrderCtrl.edit.tpl", "Generating (3) JS Functions to: /var/www/~users/alex/omi-frame-sample/code/view/order/OrderCtrl.js\n");
 		?><!-- 
 -->
 <div qArgs="$order = null" jsFunc='renderEdit($order)'>
@@ -208,7 +208,7 @@ if (\QWebRequest::IsAjaxCallback())
 			if (!$this->changed)
 				return;
 		}
-		if (\QAutoload::$DebugPanel) $this->renderDebugInfo("/var/www/~omibit/repos/alex/frame/tests/framesite/_first-app/code/view/order/OrderCtrl.item.tpl", "Generating (1) JS Functions to: /var/www/~omibit/repos/alex/frame/tests/framesite/_first-app/code/view/order/OrderCtrl.js\n");
+		if (\QAutoload::$DebugPanel) $this->renderDebugInfo("/var/www/~users/alex/omi-frame-sample/code/view/order/OrderCtrl.item.tpl", "Generating (1) JS Functions to: /var/www/~users/alex/omi-frame-sample/code/view/order/OrderCtrl.js\n");
 		?><!-- 
 	The only frame feature here is the "jsFunc" directive
 	When you set the "jsFunc" attribute on an HTML/XML element you are asking the frame to 
@@ -314,7 +314,7 @@ if (\QWebRequest::IsAjaxCallback())
 			if (!$this->changed)
 				return;
 		}
-		if (\QAutoload::$DebugPanel) $this->renderDebugInfo("/var/www/~omibit/repos/alex/frame/tests/framesite/_first-app/code/view/order/OrderCtrl.list.tpl", "");
+		if (\QAutoload::$DebugPanel) $this->renderDebugInfo("/var/www/~users/alex/omi-frame-sample/code/view/order/OrderCtrl.list.tpl", "");
 		?><!-- Just listing the orders here -->
 <?php
 
@@ -389,7 +389,7 @@ if (\QWebRequest::IsAjaxCallback())
 			if (!$this->changed)
 				return;
 		}
-		if (\QAutoload::$DebugPanel) $this->renderDebugInfo("/var/www/~omibit/repos/alex/frame/tests/framesite/_first-app/code/view/order/OrderCtrl.tpl", "");
+		if (\QAutoload::$DebugPanel) $this->renderDebugInfo("/var/www/~users/alex/omi-frame-sample/code/view/order/OrderCtrl.tpl", "");
 		?><div style="max-width: 900px; padding: 20px; margin: 0 auto;" qCtrl="<?=$this->name."(".get_class($this).")"?>" class="QWebControl">
 	<h5><a href="">Orders</a></h5>
 	<p>
