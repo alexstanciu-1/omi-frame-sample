@@ -2,6 +2,8 @@
 
 	namespace MyCompany\Ecomm;
 	
+	require("config.php");
+	
 	// this should be the default for production
 	error_reporting(E_ALL  & ~(E_STRICT | E_DEPRECATED | E_NOTICE | E_WARNING));
 	// this should be the default for development
@@ -26,7 +28,7 @@
 	\QAutoload::EnableDevelopmentMode("default", false, false);
 		
 	// connect to the SQL server
-	$mysql = new \QMySqlStorage("sql", "localhost", "root", "", "test_omi_ecomm", 3306);
+	$mysql = new \QMySqlStorage("sql", "localhost", MyProject_MysqlUser, MyProject_MysqlPass, MyProject_MysqlDb, 3306);
 	$mysql->connect();
 	
 	// we set the $mysql object as the main storage for our APP
