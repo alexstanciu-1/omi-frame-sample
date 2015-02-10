@@ -26,7 +26,7 @@
 	// only in development mode, remove or comment this line in production
 	ini_set('memory_limit', '128M');
 	// Put your IP instead of "default" if you are not on the same network with the web server
-	\QAutoload::EnableDevelopmentMode("default", false, false);
+	\QAutoload::EnableDevelopmentMode("default", false);
 		
 	// connect to the SQL server
 	$mysql = new \QMySqlStorage("sql", "localhost", MyProject_MysqlUser, MyProject_MysqlPass, MyProject_MysqlDb, 3306);
@@ -34,7 +34,7 @@
 	
 	// we set the $mysql object as the main storage for our APP
 	\QApp::SetStorage($mysql);
-	// as we are in development mode, we want to let the frame to autosync the DB structure
+	// if we are in development mode, we want to let the frame to autosync the DB structure
 	\QApp::AutoSyncDbStructure();
 	// sets the app's main model
 	\QApp::SetDataClass("MyCompany\\Ecomm\\Model\\AppModel");

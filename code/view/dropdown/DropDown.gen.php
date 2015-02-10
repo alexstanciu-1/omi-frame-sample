@@ -1,4 +1,7 @@
 <?php
+/**
+  * This file was generated and it will be overwritten when it's dependencies are changed or removed.
+  */
 
 namespace MyCompany\Util\View;
 
