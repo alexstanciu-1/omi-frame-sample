@@ -8,7 +8,7 @@
 	// define('Q_FRAME_GET_ID_TYPE', "http://www.omiframe.com/API/types/");
 	
 	// include the frame
-	require_once("../omi-frame/src/init.php");
+	require_once(OmiWebSite_Frame_Path);
 	
 	// include a module if needed, modules may also have a "include.php" script that will be included now
 	// \QAutoload::LoadModule("../../../../frame/modules/common/");
@@ -21,7 +21,8 @@
 	// Put your IP instead of "default" if you are not on the same network with the web server
 	// EnableDevelopmentMode() will only execute if the conditions are satisfied
 	// You may comment out this line in production
-	\QAutoload::EnableDevelopmentMode("default", true);
+	// Setting the second parameter to true it will force a full resync
+	\QAutoload::EnableDevelopmentMode(OmiWebSite_DevModelIp, false);
 		
 	// connect to the SQL server
 	$mysql = new \QMySqlStorage("sql", "localhost", MyProject_MysqlUser, MyProject_MysqlPass, MyProject_MysqlDb, 3306);
