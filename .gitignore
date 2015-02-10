@@ -4,4 +4,6 @@ code/temp/**
 /code/temp/**
 /config.php
 
-
+*.gen.php
+*.dyn.php
+*.gen.dyn.php
