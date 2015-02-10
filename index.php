@@ -21,7 +21,7 @@
 	// Put your IP instead of "default" if you are not on the same network with the web server
 	// EnableDevelopmentMode() will only execute if the conditions are satisfied
 	// You may comment out this line in production
-	\QAutoload::EnableDevelopmentMode("default", false);
+	\QAutoload::EnableDevelopmentMode("default", true);
 		
 	// connect to the SQL server
 	$mysql = new \QMySqlStorage("sql", "localhost", MyProject_MysqlUser, MyProject_MysqlPass, MyProject_MysqlDb, 3306);
