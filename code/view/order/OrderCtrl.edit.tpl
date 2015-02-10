@@ -1,5 +1,4 @@
-<!-- 
--->
+<!-- Template for edit -->
 <div qArgs="$order = null" jsFunc='renderEdit($order)'>
 	<?php 
 		$order = $order ? $order : $this->order;

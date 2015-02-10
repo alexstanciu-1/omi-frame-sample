@@ -22,7 +22,7 @@
 	// EnableDevelopmentMode() will only execute if the conditions are satisfied
 	// You may comment out this line in production
 	// Setting the second parameter to true it will force a full resync
-	\QAutoload::EnableDevelopmentMode(OmiWebSite_DevModelIp, false);
+	\QAutoload::EnableDevelopmentMode(OmiWebSite_DevModelIp, OmiWebSite_FullResync);
 		
 	// connect to the SQL server
 	$mysql = new \QMySqlStorage("sql", "localhost", MyProject_MysqlUser, MyProject_MysqlPass, MyProject_MysqlDb, 3306);
