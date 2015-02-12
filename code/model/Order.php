@@ -11,6 +11,10 @@ class Order extends \QModel
 {
 	use Order_GenTrait, ExposeCRUD;
 	/**
+	 * @var string|array
+	 */
+	public static $ModelEntity = "*,Items.*";
+	/**
 	 * We need to query a bit more data for an order
 	 * The name of the property or the implementation are not a frame standard
 	 * 
