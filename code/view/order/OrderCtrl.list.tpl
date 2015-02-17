@@ -1,8 +1,6 @@
 <!-- Just listing the orders here -->
 <?php
-
 	$this->data = $this->data ? $this->data : \MyCompany\Ecomm\Model\Order::GetListingOrders();
-
 ?><table class="u-full-width">
 	<thead>
 		<tr>
