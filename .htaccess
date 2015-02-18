@@ -11,8 +11,11 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 # avoid folders that should not be requested, and folders where you place your files
 # this is better than avoiding by extension
-RewriteCond %{REQUEST_URI} !code.*$ [NC]
-RewriteCond %{REQUEST_URI} !files.*$ [NC]
+RewriteCond %{REQUEST_URI} !^code.*$ [NC]
+RewriteCond %{REQUEST_URI} !^files.*$ [NC]
+
+# make sure files that are not found do not end up being processed by PHP
+RewriteCond %{REQUEST_URI} !\.(gif|jpg|jpeg|png|js|css)$
 
 RewriteRule ^(.*)$ index.php?__or__=$1 [L,QSA]
 

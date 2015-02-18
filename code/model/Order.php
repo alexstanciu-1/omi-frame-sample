@@ -66,6 +66,7 @@ class Order extends \QModel
 	 * For optimization we ask for the collection to be One To Many
 	 * 
 	 * @storage.oneToMany
+	 * 
 	 * @var OrderItem[]
 	 */
 	public $Items;
@@ -86,11 +87,12 @@ class Order extends \QModel
 				
 				WHERE
 					Responsible=?
+					AND Items IS_A MyCompany\Ecomm\Model\OrderItem
 										 
 				ORDER BY Date DESC
 				GROUP BY Id
 				LIMIT 50";
-		
+	
 		// load data
 		$data = self::QueryAll($query, \QApp::GetController()->sessionId);
 		
