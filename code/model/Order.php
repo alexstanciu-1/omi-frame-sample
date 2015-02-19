@@ -187,7 +187,7 @@ class Order extends \QModel
 	public function afterBeginTransaction($selector = null, $transform_state = null)
 	{
 		if (!$this->Items)
-			throw new Exception("Missing items");
+			throw new \Exception("Missing items");
 		
 		$products = new \QModelArray();
 		foreach ($this->Items as $item)

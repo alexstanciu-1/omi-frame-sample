@@ -13,10 +13,6 @@
 		<prefix><?= "en" ?></prefix>
 	-->
 	<?php
-		/**
-		 * This PHP CODE BLOCK will be executed at all times, including for AJAX and FAST AJAX requests.
-		 * The code will be placed in the generated $this->initController() method.
-		 */
 	
 		session_start();
 		$this->sessionId = session_id();
