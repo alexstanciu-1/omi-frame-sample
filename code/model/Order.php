@@ -89,18 +89,21 @@ class Order extends \QModel
 					Responsible=?
 					AND Items IS_A MyCompany\Ecomm\Model\OrderItem
 										 
-				ORDER BY Date DESC
+				ORDER BY 
+					??OBY_Date?<,[Date ?@]
+					??OBY_Id?<,[Id ?@]
+					
 				GROUP BY Id
 				LIMIT 50";
 	
 		// load data
-		$data = self::QueryAll($query, \QApp::GetController()->sessionId);
+		$data = self::QueryAll($query, [\QApp::GetController()->sessionId, "OBY_Date" => "ASC", "OBY_Id" => "ASC"]);
 		
 		// if we don't have any test data for the current session Id we create it
 		if ((!$data) || (!count($data)))
 		{
 			self::PopulateTestData();
-			$data = self::QueryAll($query, \QApp::GetController()->sessionId);
+			$data = self::QueryAll($query, [\QApp::GetController()->sessionId]);
 		}
 		
 		return $data;

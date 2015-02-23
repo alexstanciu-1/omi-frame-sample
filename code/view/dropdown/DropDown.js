@@ -163,3 +163,88 @@ $_QOUT += "<div class=\"item\" qArgs=\"\\QIModel $item\" jsFunc=\"renderItem($it
 
 /** End :: Generated function: MyCompany\Util\View\DropDown::renderItem **/
 
+
+
+/** Begin :: Generated function: MyCompany\DropDown::renderItem **/
+QExtendClass("MyCompany\\DropDown", "", {
+renderItem: function($item)
+{
+
+		var $_QOUT = "";
+
+$_QOUT += "<div class=\"item\" qArgs=\"\\QIModel $item\" jsFunc=\"renderItem($item)\" itemValue=\"" + ( htmlspecialchars($item.getBindValue()) ) + "\">\n" + 
+			"	";this.renderItemCaption($item); $_QOUT += "</div>";
+		return $_QOUT;
+}});
+
+/** End :: Generated function: MyCompany\DropDown::renderItem **/
+
+
+
+/** Begin :: Generated function: MyCompany\DropDown::renderOptions **/
+QExtendClass("MyCompany\\DropDown", "", {
+renderOptions: function($filter, $data)
+{
+
+		var $_QOUT = "";
+
+$_QOUT += "<div qArgs=\"$filter, $data = null\" jsFunc=\"renderOptions($filter, $data)\">\n" + 
+			"	";		// if the filter is array then we assume that is the actual data
+		$filter = qis_array($filter) ? null : $filter;
+		// if no data, we query for it based on the filter
+		$data = qis_array($filter) ? $filter : ($data ? $data : this.getData($filter));
+		
+		if (!$data) {
+			$_QOUT += "<i>No Results</i>";		}
+		else {
+			var $_expr_item = $data ;
+if ($_expr_item._ty && ($_expr_item._ty === 'QModelArray'))
+	$_expr_item = $_expr_item._items;
+var $_isArr_item = Array.isArray($_expr_item);
+for (var $_key_item in $_expr_item)
+{
+
+		if ($_isArr_item && (!(($_key_item >=0) && ($_key_item < $_expr_item.length))))
+			continue;
+		$item = $_expr_item[$_key_item];
+this.renderItem($item);
+}
+
+		}
+	$_QOUT += "</div>";
+		return $_QOUT;
+}});
+
+/** End :: Generated function: MyCompany\DropDown::renderOptions **/
+
+
+
+/** Begin :: Generated function: MyCompany\DropDown::render **/
+QExtendClass("MyCompany\\DropDown", "", {
+render: function($value, $selectedItem, $qb)
+{
+
+		var $_QOUT = "";
+
+$_QOUT += "<div qArgs=\"$value = null, \\QIModel $selectedItem = null, $qb = null\" class=dropDownCtrl QWebControl jsFunc=\"render(\\$value, $selectedItem, \\$qb)\" qCtrl=\"" + (this.name+ "" +"("+ "" +get_class(this)+ "" +")") + "\">\n" + 
+			"	";		$value = $value ? $value : this.value;
+		$selectedItem = $selectedItem ? $selectedItem : this.selectedItem;
+		$qb = $qb ? $qb : this.qb;
+		
+	$_QOUT += "	<input class=\"hidden-value\" type=\"hidden\" " + ( $qb ? "qb=\"" + $qb + "\"" : "" ) + " " + ( 
+				$selectedItem ? "qbValue='"+ "" +$selectedItem.getBindValue()+ "" +"'" : "" ) + " />\n" + 
+			"	<div class=\"selected\">\n" + 
+			"		<div class=\"caption\">" + ( $selectedItem ? this.renderItemCaption($selectedItem) : "<i>Not selected</i>" ) + "</div>\n" + 
+			"		<div class=\"icon\"><i class=\"fa fa-arrow-circle-down\"></i></div>\n" + 
+			"	</div>\n" + 
+			"	<div class=\"hidden-container\">\n" + 
+			"		<input type=\"text\" />\n" + 
+			"		<div class=\"options-container\">\n" + 
+			"			";/* $this->renderOptions(); */ // we only load on demand $_QOUT += "		</div>\n" + 
+			"	</div>\n" + 
+			"</div>";
+		return $_QOUT;
+}});
+
+/** End :: Generated function: MyCompany\DropDown::render **/
+

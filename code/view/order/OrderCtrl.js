@@ -160,42 +160,72 @@ QExtendClass("MyCompany\\Ecomm\\View\\OrderCtrl", "QWebControl",
 // ONLY GENERATED CODE FROM HERE
 
 
-/** Begin :: Generated function: MyCompany\Ecomm\View\OrderCtrl::renderEditItem **/
+
+/** Begin :: Generated function: MyCompany\Ecomm\View\OrderCtrl::renderDetails **/
 QExtendClass("MyCompany\\Ecomm\\View\\OrderCtrl", "QWebControl", {
-renderEditItem: function($ord_item, $pos)
+renderDetails: function($order)
 {
 
 		var $_QOUT = "";
 
-$_QOUT += "<tr qb=\".(MyCompany\\Ecomm\\Model\\OrderItem)\" jsFunc=\'renderEditItem($ord_item, $pos)\'>\n" + 
-			"						<td qb=\".Id\" qbValue=\"" + ( $ord_item ? $ord_item.getId() : "null" ) + "\">#" + ( $ord_item ? $ord_item.getId() : "" ) + "</td>\n" + 
-			"						<td>\n" + 
-			"							";
-var $dropDown = $ctrl("MyCompany\\Ecomm\\View\\OrderCtrl_productsDropDown");
-									// If this PHP code block is not present then it is created and an instance of the control is created
-									this.addControl($dropDown);
-									$dropDown.init();
-									$dropDown.qb = ".Product(\\MyCompany\\Ecomm\\Model\\Product)";
-									$dropDown.selectedItem = $ord_item ? $ord_item.Product : null;
-									$_QOUT += $dropDown.render();
-								
-$_QOUT += "\n" + 
-			"						</td>\n" + 
-			"						<td>\n" + 
-			"							<input qb=\".Quantity\" class=\"u-full-width\" type=\"number\" value=\"" + ( $ord_item ? $ord_item.Quantity : "" ) + "\" />\n" + 
-			"						</td>\n" + 
-			"						<td>\n" + 
-			"							<input class=\"u-full-width\" type=\"number\" value=\"" + ( $ord_item ? $ord_item.UnitPrice : "" ) + "\" " + ( (!$ord_item) ? "readonly" : "" ) + " />\n" + 
-			"						</td>\n" + 
-			"						<td>\n" + 
-			"							" + ( $ord_item ? number_format(($ord_item.Quantity * $ord_item.UnitPrice), 2) : "" ) + "						</td>\n" + 
-			"						<td><a onclick=\"var jq_tr = jQuery(this).closest(\'tr\'); qbDelete(jq_tr); jq_tr.hide(\'slow\');\" href=\"javascript://\">remove</a></td>\n" + 
-			"						<td><a onclick=\"var jq_tr = jQuery(this).closest(\'tr\'); qbUnlink(jq_tr); jq_tr.hide(\'slow\');\" href=\"javascript://\">unlink</a></td>\n" + 
-			"					</tr>";
+$_QOUT += "<tr qArgs=\"$order\" jsFunc=\"renderDetails($order)\">\n" + 
+			"	";
+		$order = $order ? $order : this.order;
+		if ($order && is_numeric($order))
+			$order = this.loadOrderById($order);
+	
+	if ($order.Items)
+	{
+	$_QOUT += "	<td colspan=\"9\">\n" + 
+			"		<small>this element was read with AJAX, data was queried with the ORM</small>\n" + 
+			"		<table>\n" + 
+			"			<thead>\n" + 
+			"				<th></th>\n" + 
+			"				<th>Item</th>\n" + 
+			"				<th>Quantity</th>\n" + 
+			"				<th>Item Price</th>\n" + 
+			"				<th>Price</th>\n" + 
+			"			</thead>\n" + 
+			"			<tbody>\n" + 
+			"				";					$pos = 1;
+					$total = 0;
+					var $_expr_o_item = $order.Items ;
+if ($_expr_o_item._ty && ($_expr_o_item._ty === 'QModelArray'))
+	$_expr_o_item = $_expr_o_item._items;
+var $_isArr_o_item = Array.isArray($_expr_o_item);
+for (var $_key_o_item in $_expr_o_item)
+{
+
+		if ($_isArr_o_item && (!(($_key_o_item >=0) && ($_key_o_item < $_expr_o_item.length))))
+			continue;
+		$o_item = $_expr_o_item[$_key_o_item];
+
+						$i_price = $o_item.UnitPrice * $o_item.Quantity;
+						$_QOUT += "<tr>\n" + 
+			"							<td># " + ( $o_item.getId() ) + "</td>\n" + 
+			"							<td>" + ( $o_item.Product.Name ) + "</td>\n" + 
+			"							<td>" + ( $o_item.Quantity ) + "</td>\n" + 
+			"							<td>" + ( $o_item.UnitPrice ) + "</td>\n" + 
+			"							<td>" + ( number_format($i_price, 2) ) + "</td>\n" + 
+			"						</tr>";						$pos++;
+						$total += $i_price;
+					}
+
+				$_QOUT += "			</tbody>\n" + 
+			"			<tfoot>\n" + 
+			"				<td colspan=\"3\"></td>\n" + 
+			"				<th>Total</th>\n" + 
+			"				<th>" + ( $total ) + "</th>\n" + 
+			"			</tfoot>\n" + 
+			"		</table>\n" + 
+			"	</td>";	}
+	else {
+		$_QOUT += "<td colspan=\"9\">No items !</td>";	}
+	$_QOUT += "</tr>";
 		return $_QOUT;
 }});
 
-/** End :: Generated function: MyCompany\Ecomm\View\OrderCtrl::renderEditItem **/
+/** End :: Generated function: MyCompany\Ecomm\View\OrderCtrl::renderDetails **/
 
 
 
@@ -274,6 +304,61 @@ for (var $_key_ord_item in $_expr_ord_item)
 }});
 
 /** End :: Generated function: MyCompany\Ecomm\View\OrderCtrl::renderEdit **/
+
+
+
+/** Begin :: Generated function: MyCompany\Ecomm\View\OrderCtrl::renderEditItem **/
+QExtendClass("MyCompany\\Ecomm\\View\\OrderCtrl", "QWebControl", {
+renderEditItem: function($ord_item, $pos)
+{
+
+		var $_QOUT = "";
+
+$_QOUT += "<tr qb=\".(MyCompany\\Ecomm\\Model\\OrderItem)\" jsFunc=\'renderEditItem($ord_item, $pos)\'>\n" + 
+			"						<td qb=\".Id\" qbValue=\"" + ( $ord_item ? $ord_item.getId() : "null" ) + "\">#" + ( $ord_item ? $ord_item.getId() : "" ) + "</td>\n" + 
+			"						<td>\n" + 
+			"							";
+var $dropDown = $ctrl("MyCompany\\Ecomm\\View\\OrderCtrl_productsDropDown");
+									// If this PHP code block is not present then it is created and an instance of the control is created
+									this.addControl($dropDown);
+									$dropDown.init();
+									$dropDown.qb = ".Product(\\MyCompany\\Ecomm\\Model\\Product)";
+									$dropDown.selectedItem = $ord_item ? $ord_item.Product : null;
+									$_QOUT += $dropDown.render();
+								
+$_QOUT += "\n" + 
+			"						</td>\n" + 
+			"						<td>\n" + 
+			"							<input qb=\".Quantity\" class=\"u-full-width\" type=\"number\" value=\"" + ( $ord_item ? $ord_item.Quantity : "" ) + "\" />\n" + 
+			"						</td>\n" + 
+			"						<td>\n" + 
+			"							<input class=\"u-full-width\" type=\"number\" value=\"" + ( $ord_item ? $ord_item.UnitPrice : "" ) + "\" " + ( (!$ord_item) ? "readonly" : "" ) + " />\n" + 
+			"						</td>\n" + 
+			"						<td>\n" + 
+			"							" + ( $ord_item ? number_format(($ord_item.Quantity * $ord_item.UnitPrice), 2) : "" ) + "						</td>\n" + 
+			"						<td><a onclick=\"var jq_tr = jQuery(this).closest(\'tr\'); qbDelete(jq_tr); jq_tr.hide(\'slow\');\" href=\"javascript://\">remove</a></td>\n" + 
+			"						<td><a onclick=\"var jq_tr = jQuery(this).closest(\'tr\'); qbUnlink(jq_tr); jq_tr.hide(\'slow\');\" href=\"javascript://\">unlink</a></td>\n" + 
+			"					</tr>";
+		return $_QOUT;
+}});
+
+/** End :: Generated function: MyCompany\Ecomm\View\OrderCtrl::renderEditItem **/
+
+
+
+/** Begin :: Generated function: MyCompany\Ecomm\View\OrderCtrl_productsDropDown::renderItemCaption **/
+QExtendClass("MyCompany\\Ecomm\\View\\OrderCtrl_productsDropDown", "MyCompany\\Util\\View\\DropDown", {
+renderItemCaption: function($item)
+{
+
+		var $_QOUT = "";
+
+$_QOUT += "									" + ( $item.Name ) + " id:<span>" + ( $item.getId() ) + "</span>\n" + 
+			"								";
+		return $_QOUT;
+}});
+
+/** End :: Generated function: MyCompany\Ecomm\View\OrderCtrl_productsDropDown::renderItemCaption **/
 
 
 
@@ -369,89 +454,4 @@ for (var $_key_ord_item in $_expr_ord_item)
 }});
 
 /** End :: Generated function: MyCompany\Ecomm\View\OrderCtrl::renderItem **/
-
-
-
-/** Begin :: Generated function: MyCompany\Ecomm\View\OrderCtrl_productsDropDown::renderItemCaption **/
-QExtendClass("MyCompany\\Ecomm\\View\\OrderCtrl_productsDropDown", "MyCompany\\Util\\View\\DropDown", {
-renderItemCaption: function($item)
-{
-
-		var $_QOUT = "";
-
-$_QOUT += "									" + ( $item.Name ) + " id:<span>" + ( $item.getId() ) + "</span>\n" + 
-			"								";
-		return $_QOUT;
-}});
-
-/** End :: Generated function: MyCompany\Ecomm\View\OrderCtrl_productsDropDown::renderItemCaption **/
-
-
-
-
-/** Begin :: Generated function: MyCompany\Ecomm\View\OrderCtrl::renderDetails **/
-QExtendClass("MyCompany\\Ecomm\\View\\OrderCtrl", "QWebControl", {
-renderDetails: function($order)
-{
-
-		var $_QOUT = "";
-
-$_QOUT += "<tr qArgs=\"$order\" jsFunc=\"renderDetails($order)\">\n" + 
-			"	";
-		$order = $order ? $order : this.order;
-		if ($order && is_numeric($order))
-			$order = this.loadOrderById($order);
-	
-	if ($order.Items)
-	{
-	$_QOUT += "	<td colspan=\"9\">\n" + 
-			"		<small>this element was read with AJAX, data was queried with the ORM</small>\n" + 
-			"		<table>\n" + 
-			"			<thead>\n" + 
-			"				<th></th>\n" + 
-			"				<th>Item</th>\n" + 
-			"				<th>Quantity</th>\n" + 
-			"				<th>Item Price</th>\n" + 
-			"				<th>Price</th>\n" + 
-			"			</thead>\n" + 
-			"			<tbody>\n" + 
-			"				";					$pos = 1;
-					$total = 0;
-					var $_expr_o_item = $order.Items ;
-if ($_expr_o_item._ty && ($_expr_o_item._ty === 'QModelArray'))
-	$_expr_o_item = $_expr_o_item._items;
-var $_isArr_o_item = Array.isArray($_expr_o_item);
-for (var $_key_o_item in $_expr_o_item)
-{
-
-		if ($_isArr_o_item && (!(($_key_o_item >=0) && ($_key_o_item < $_expr_o_item.length))))
-			continue;
-		$o_item = $_expr_o_item[$_key_o_item];
-
-						$i_price = $o_item.UnitPrice * $o_item.Quantity;
-						$_QOUT += "<tr>\n" + 
-			"							<td># " + ( $o_item.getId() ) + "</td>\n" + 
-			"							<td>" + ( $o_item.Product.Name ) + "</td>\n" + 
-			"							<td>" + ( $o_item.Quantity ) + "</td>\n" + 
-			"							<td>" + ( $o_item.UnitPrice ) + "</td>\n" + 
-			"							<td>" + ( number_format($i_price, 2) ) + "</td>\n" + 
-			"						</tr>";						$pos++;
-						$total += $i_price;
-					}
-
-				$_QOUT += "			</tbody>\n" + 
-			"			<tfoot>\n" + 
-			"				<td colspan=\"3\"></td>\n" + 
-			"				<th>Total</th>\n" + 
-			"				<th>" + ( $total ) + "</th>\n" + 
-			"			</tfoot>\n" + 
-			"		</table>\n" + 
-			"	</td>";	}
-	else {
-		$_QOUT += "<td colspan=\"9\">No items !</td>";	}
-	$_QOUT += "</tr>";
-		return $_QOUT;
-}});
-
-/** End :: Generated function: MyCompany\Ecomm\View\OrderCtrl::renderDetails **/
 

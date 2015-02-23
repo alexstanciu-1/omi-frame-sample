@@ -17,7 +17,8 @@
 	\QAutoload::AddMainFolder(Q_RUNNING_PATH."code/");
 
 	// only if you need to run development mode, remove or comment this line in production
-	ini_set('memory_limit', '128M');
+	ini_set('memory_limit', '256M');
+	
 	// Put your IP instead of "default" if you are not on the same network with the web server
 	// EnableDevelopmentMode() will only execute if the conditions are satisfied
 	// You may comment out this line in production
@@ -37,3 +38,5 @@
 
 	// now run a controller
 	\QApp::Run(new AppController());
+
+	
