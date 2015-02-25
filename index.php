@@ -15,7 +15,7 @@
 	
 	// set your code folder as the `running folder`
 	\QAutoload::AddMainFolder(Q_RUNNING_PATH."code/");
-
+	
 	// only if you need to run development mode, remove or comment this line in production
 	ini_set('memory_limit', '256M');
 	
@@ -24,7 +24,7 @@
 	// You may comment out this line in production
 	// Setting the second parameter to true it will force a full resync
 	\QAutoload::EnableDevelopmentMode(OmiWebSite_DevModelIp, OmiWebSite_FullResync);
-		
+	
 	// connect to the SQL server
 	$mysql = new \QMySqlStorage("sql", "localhost", MyProject_MysqlUser, MyProject_MysqlPass, MyProject_MysqlDb, 3306);
 	$mysql->connect();
@@ -35,8 +35,6 @@
 	\QApp::AutoSyncDbStructure();
 	// sets the app's main model
 	\QApp::SetDataClass("MyCompany\\Ecomm\\Model\\AppModel");
-
+	
 	// now run a controller
 	\QApp::Run(new AppController());
-
-	

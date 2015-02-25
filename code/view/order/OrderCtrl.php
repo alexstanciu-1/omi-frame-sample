@@ -66,4 +66,17 @@ class OrderCtrl extends \QWebControl implements \QIUrlController
 		if ($order)
 			$order->deleteOrder();
 	}
+	
+	/**
+	 * @api.enable
+	 * 
+	 * @param type $arg_1
+	 * @param type $arg_2
+	 * @param type $arg_3
+	 * @return type
+	 */
+	public static function staticTest($arg_1, $arg_2, $arg_3)
+	{
+		return [$arg_1, $arg_2, $arg_3];
+	}
 }

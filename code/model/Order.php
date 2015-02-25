@@ -38,9 +38,10 @@ class Order extends \QModel
 	 * @var string
 	 */
 	public static $DeleteSelector = "*,Items.{*,Product}";
-	
 	/**
 	 * The Id
+	 * 
+	 * @validation mandatory && positive && between(1, 999999999)
 	 * 
 	 * @var integer
 	 */
@@ -52,11 +53,18 @@ class Order extends \QModel
 	public $Date;
 	/**
 	 * Customer
+	 * 
+	 * @fixValue trim
+	 * @validation mandatory && min(3)
+	 * 
 	 * @var string
 	 */
 	public $Customer;
 	/**
 	 * We will just use the session id for this field
+	 * 
+	 * @fixValue trim
+	 * @validation mandatory && min(7)
 	 *
 	 * @var string
 	 */
@@ -66,6 +74,8 @@ class Order extends \QModel
 	 * For optimization we ask for the collection to be One To Many
 	 * 
 	 * @storage.oneToMany
+	 * 
+	 * @validation mandatory
 	 * 
 	 * @var OrderItem[]
 	 */
@@ -189,6 +199,10 @@ class Order extends \QModel
 	 */
 	public function afterBeginTransaction($selector = null, $transform_state = null)
 	{
+		// we are only checking for UPDATE & DELETE
+		if (!(($transform_state === null) || ($transform_state & \QModel::TransformCreate) || ($transform_state & \QModel::TransformUpdate)))
+			return;
+		
 		if (!$this->Items)
 			throw new \Exception("Missing items");
 		

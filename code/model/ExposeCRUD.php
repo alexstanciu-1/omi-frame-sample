@@ -57,16 +57,4 @@ trait ExposeCRUD
 	{
 		return parent::detele($selector)->Id;
 	}
-	
-	/**
-	 * We expose querying by id
-	 * 
-	 * @param integer $id
-	 * @return QModel[]
-	 */
-	public function queryById($id)
-	{
-		$class = get_class($this);
-		return ($res = $class::query(($this->querySelector ?: "*")." WHERE Id = ?", $id)) ? reset($res) : null;
-	}
 }
