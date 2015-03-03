@@ -37,8 +37,13 @@ class Product extends \QModel
 	 */
 	public $Image;
 	/**
-	 * The Id
+	 * The price
 	 * @var float
 	 */
 	public $Price;
+	/**
+	 * The best order
+	 * @var Order
+	 */
+	public $BestOrder;
 }

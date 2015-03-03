@@ -13,7 +13,7 @@ class OrderItem extends \QModel
 
 	/**
 	 * Id
-	 * @var string
+	 * @var integer
 	 */
 	public $Id;
 	/**

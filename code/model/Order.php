@@ -48,6 +48,7 @@ class Order extends \QModel
 	public $Id;
 	/**
 	 * Date
+	 * @storage.type datetime
 	 * @var datetime
 	 */
 	public $Date;
@@ -113,7 +114,7 @@ class Order extends \QModel
 		if ((!$data) || (!count($data)))
 		{
 			self::PopulateTestData();
-			$data = self::QueryAll($query, [\QApp::GetController()->sessionId]);
+			$data = self::QueryAll($query, [\QApp::GetController()->sessionId, "OBY_Date" => "ASC", "OBY_Id" => "ASC"]);
 		}
 		
 		return $data;

@@ -1,7 +1,7 @@
 <?php
 
 	namespace MyCompany\Ecomm;
-	
+
 	require("config.php");
 	
 	// comment on this one a bit
@@ -38,3 +38,4 @@
 	
 	// now run a controller
 	\QApp::Run(new AppController());
+	

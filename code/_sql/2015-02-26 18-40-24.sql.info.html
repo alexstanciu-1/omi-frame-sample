@@ -1,0 +1,29 @@
+Setup type: MyCompany\Ecomm\Model\AppModel | test_omi_ecomm.AppModel<br/>
+<pre class='xdebug-var-dump' dir='ltr'><small>string</small> <font color='#cc0000'>'Setup property: MyCompany\Ecomm\Model\AppModel.Version(string)'</font> <i>(length=62)</i>
+</pre><pre class='xdebug-var-dump' dir='ltr'><small>string</small> <font color='#cc0000'>'Setup property: MyCompany\Ecomm\Model\AppModel.Orders((MyCompany\Ecomm\Model\Order)[])'</font> <i>(length=86)</i>
+</pre>Setup type: (MyCompany\Ecomm\Model\Order)[] | test_omi_ecomm.Orders<br/>
+Setup type: MyCompany\Ecomm\Model\Order | test_omi_ecomm.Orders<br/>
+<pre class='xdebug-var-dump' dir='ltr'><small>string</small> <font color='#cc0000'>'Setup property: MyCompany\Ecomm\Model\Order.Date(datetime)'</font> <i>(length=58)</i>
+</pre><pre class='xdebug-var-dump' dir='ltr'><small>string</small> <font color='#cc0000'>'Setup property: MyCompany\Ecomm\Model\Order.Customer(string)'</font> <i>(length=60)</i>
+</pre><pre class='xdebug-var-dump' dir='ltr'><small>string</small> <font color='#cc0000'>'Setup property: MyCompany\Ecomm\Model\Order.Responsible(string)'</font> <i>(length=63)</i>
+</pre><pre class='xdebug-var-dump' dir='ltr'><small>string</small> <font color='#cc0000'>'Setup property: MyCompany\Ecomm\Model\Order.Items((MyCompany\Ecomm\Model\OrderItem)[])'</font> <i>(length=86)</i>
+</pre>Setup type: (MyCompany\Ecomm\Model\OrderItem)[] | test_omi_ecomm.Orders_Items<br/>
+Setup type: MyCompany\Ecomm\Model\OrderItem | test_omi_ecomm.OrdersItems<br/>
+<pre class='xdebug-var-dump' dir='ltr'><small>string</small> <font color='#cc0000'>'Setup property: MyCompany\Ecomm\Model\OrderItem.Product(MyCompany\Ecomm\Model\Product)'</font> <i>(length=86)</i>
+</pre>Setup type: MyCompany\Ecomm\Model\Product | test_omi_ecomm.Products<br/>
+<pre class='xdebug-var-dump' dir='ltr'><small>string</small> <font color='#cc0000'>'Setup property: MyCompany\Ecomm\Model\Product.Name(string)'</font> <i>(length=58)</i>
+</pre><pre class='xdebug-var-dump' dir='ltr'><small>string</small> <font color='#cc0000'>'Setup property: MyCompany\Ecomm\Model\Product.Image(file)'</font> <i>(length=57)</i>
+</pre><pre class='xdebug-var-dump' dir='ltr'><small>string</small> <font color='#cc0000'>'Setup property: MyCompany\Ecomm\Model\Product.Price(float)'</font> <i>(length=58)</i>
+</pre><pre class='xdebug-var-dump' dir='ltr'><small>string</small> <font color='#cc0000'>'Setup property: MyCompany\Ecomm\Model\OrderItem.Quantity(float)'</font> <i>(length=63)</i>
+</pre><pre class='xdebug-var-dump' dir='ltr'><small>string</small> <font color='#cc0000'>'Setup property: MyCompany\Ecomm\Model\OrderItem.UnitPrice(float)'</font> <i>(length=64)</i>
+</pre><pre class='xdebug-var-dump' dir='ltr'><small>string</small> <font color='#cc0000'>'Setup property: MyCompany\Ecomm\Model\AppModel.Products((MyCompany\Ecomm\Model\Product)[])'</font> <i>(length=90)</i>
+</pre>Setup type: (MyCompany\Ecomm\Model\Product)[] | test_omi_ecomm.Products<br/>
+<pre>CREATE TABLE `test_omi_ecomm`.`Orders_Items` (
+`$id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY  COMMENT 'Id/RowId column role',
+`$Orders` INT UNSIGNED NULL COMMENT 'Reference to `test_omi_ecomm.Orders_Items`.`Items` column role',
+`$Items` INT UNSIGNED NULL COMMENT 'Reference column for property value: Items',
+INDEX `$Orders` (`$Orders`),
+INDEX `$Items` (`$Items`) )
+ ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci COMMENT = 'Storage for collection: MyCompany\\Ecomm\\Model\\Order.Items';
+
+</pre>
