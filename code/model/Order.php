@@ -41,8 +41,6 @@ class Order extends \QModel
 	/**
 	 * The Id
 	 * 
-	 * @validation mandatory && positive && between(1, 999999999)
-	 * 
 	 * @var integer
 	 */
 	public $Id;
@@ -108,13 +106,13 @@ class Order extends \QModel
 				LIMIT 50";
 	
 		// load data
-		$data = self::QueryAll($query, [\QApp::GetController()->sessionId, "OBY_Date" => "ASC", "OBY_Id" => "ASC"]);
+		$data = self::QueryAll($query, [\QApp::GetController()->sessionId, "OBY_Date" => "DESC", "OBY_Id" => "ASC"]);
 		
 		// if we don't have any test data for the current session Id we create it
 		if ((!$data) || (!count($data)))
 		{
 			self::PopulateTestData();
-			$data = self::QueryAll($query, [\QApp::GetController()->sessionId, "OBY_Date" => "ASC", "OBY_Id" => "ASC"]);
+			$data = self::QueryAll($query, [\QApp::GetController()->sessionId, "OBY_Date" => "DESC", "OBY_Id" => "ASC"]);
 		}
 		
 		return $data;
